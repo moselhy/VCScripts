@@ -20,9 +20,20 @@ else:
 random.seed(seed)
 
 mat_1 = "{}1.fq".format(matprefix)
+if not os.path.exists(mat_1):
+	mat_1 = "{}1.fastq".format(matprefix)
 mat_2 = "{}2.fq".format(matprefix)
+if not os.path.exists(mat_2):
+	mat_2 = "{}2.fastq".format(matprefix)
+
 pat_1 = "{}1.fq".format(patprefix)
+if not os.path.exists(pat_1):
+	pat_1 = "{}1.fastq".format(patprefix)
+
 pat_2 = "{}2.fq".format(patprefix)
+if not os.path.exists(pat_2):
+	pat_2 = "{}2.fastq".format(patprefix)
+
 out1 = "{}1.fastq".format(outprefix)
 out2 = "{}2.fastq".format(outprefix)
 counter = 0

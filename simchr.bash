@@ -9,6 +9,10 @@
 VCF2DIPLOID="$HOME/bin/vcf2diploid/vcf2diploid.jar"
 ART_ILLUMINA="$HOME/bin/art/art_illumina"
 
+if [ $(hostname -f | cut -d . -f2,3) == "genouest.org" ]; then
+	source /local/env/envjava-1.8.0.sh
+fi
+
 
 ################## START OF SIMULATION ##################
 

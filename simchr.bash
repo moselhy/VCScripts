@@ -71,7 +71,8 @@ $ART_ILLUMINA -m 350 -s 50 -l 100 -p -f 15 -rs "${seed}" -na -o "maternal_chr${1
 # Combine all the reads into one pair
 combineFastq.py "maternal_chr${1}_PE" "paternal_chr${1}_PE" "chr${1}_PE" "${seed}"
 
+mv "hs_ref_GRCh38.p12_chr${1}.fa" "chr${1}.fasta"
 # Print the output file names to the user
-echo "Created chr${1}_PE1.fastq and chr${1}_PE2.fastq"
+echo "Created chr${1}.fasta, chr${1}_PE1.fastq, and chr${1}_PE2.fastq"
 
 ################## END OF SIMULATION ##################

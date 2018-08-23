@@ -6,8 +6,8 @@
 # EDIT THESE TWO VARIABLES TO POINT TO THE PROPER BINARIES FOR VCF2DIPLOID AND ART_ILLUMINA
 # You can obtain VCF2Diploid from github.com/moselhy/vcf2diploid, you need to run "make" after you clone it to create the jar file
 # You can obtain ART from https://www.niehs.nih.gov/research/resources/software/biostatistics/art/index.cfm, you just need to untar the binary package
-VCF2DIPLOID="/home/moselhy/Desktop/eclipse-java-workspace/vcf2diploid/vcf2diploid.jar"
-ART_ILLUMINA="/home/moselhy/Desktop/art_bin/art_illumina"
+VCF2DIPLOID="$HOME/bin/vcf2diploid/vcf2diploid.jar"
+ART_ILLUMINA="$HOME/bin/art/art_illumina"
 
 
 ################## START OF SIMULATION ##################

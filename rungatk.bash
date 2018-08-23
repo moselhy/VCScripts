@@ -7,7 +7,7 @@
 BWA="/local/bwa/bwa-0.7.10/bwa"
 PICARD="/local/miniconda3/envs/picard-2.18.2/bin/picard"
 SAMTOOLS="/local/miniconda3/envs/samtools-1.6/bin/samtools"
-GATK="$HOME/bin/gatk"
+GATK="$HOME/bin/gatk/gatk"
 
 # If on the GenOuest cluster, you don't need to modify the first 3 values above because the following block will load them
 # (you will still need to download GATK because it is outdated on GO)...

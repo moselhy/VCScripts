@@ -32,10 +32,10 @@ def parseFile(f):
 				entryDict[pos] = []
 			for var in entry[4].split(','):
 				entryDict[pos].append((entry[3], var))
-			if len(entry[3]) == 1 and len(entry[4]) == 1:
-				nsubs += 1
-			else:
-				nindels += 1
+				if len(entry[3]) == 1 and len(var) == 1:
+					nsubs += 1
+				else:
+					nindels += 1
 
 	fname = path.basename(f)
 	sys.stdout.write("# Found {} entries ({} substitutions, {} indels) in {}\n".format(nsubs+nindels, nsubs, nindels, fname))

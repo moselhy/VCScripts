@@ -35,7 +35,7 @@ fi
 
 # If the first line of the reference genome (header line) is not ">chr" then the chromosome number, make it so
 if [ "$(head -n1 hs_ref_GRCh38.p12_chr${1}.fa)" != ">chr${1}" ]; then
-	sed -i "1s/.*/>chr${1}/" "hs_ref_GRCh38.p12_chr${1}.fa"
+	sed -i'' -e "1s/.*/>chr${1}/" "hs_ref_GRCh38.p12_chr${1}.fa"
 fi
 
 # If the common variants do not already exist on disk, download them

@@ -38,7 +38,15 @@ with open(rgfilename) as rg, open(vcfname) as srcvcf, open(outputname, 'w') as t
 				pos = int(line.split('\t')[1])
 				zone = gp.getNuc('{}-{}'.format(str(pos), str(pos+11)))
 				if not isweakspot(zone) and pos not in variantsWritten:
-					variantsWritten[pos] = True
-					trgvcf.write(line)
+					columns = line.split('\t')	
+					alt = columns[4].split(',')
+					for a in alt:
+						if len(a) > 5:
+							alt.remove(a)
+					columns[4] = ','.join(alt)
+					newline = '\t'.join(columns)
+					if len(columns[4]) > 0:
+						variantsWritten[pos] = True
+						trgvcf.write(newline)
 
 sys.stdout.write("{} variants written.\n".format(len(variantsWritten)))

@@ -53,6 +53,15 @@ data2 = parse2[0]
 totalsubs += parse2[1]
 totalindels += parse2[2]
 
+if (parse1[1] + parse1[2]) < (parse2[1] + parse2[2]):
+	data3 = data2
+	data2 = data1
+	data1 = data3
+
+	f3 = f2
+	f2 = f1
+	f1 = f3
+
 # Lee-way in the difference of variant position
 delta = 20
 
@@ -87,13 +96,13 @@ for pos1, varlist1 in data1.items():
 					break
 
 
-		if len(found) > 0 and not matchFound:
-			mmvarlist = [data2[i] for i in found]
-			possibleMismatches = ""
-			for pos in found:
-				for mmvar in data2[pos]:
-					possibleMismatches += "{pos},{mmvar}\t".format(pos=pos, mmvar=mmvar)
-			mismatches.append("{pos},{var} : {allmismatches}".format(pos=pos1, var=var1, allmismatches=possibleMismatches))
+	if len(found) > 0 and not matchFound:
+		mmvarlist = [data2[i] for i in found]
+		possibleMismatches = ""
+		for pos in found:
+			for mmvar in data2[pos]:
+				possibleMismatches += "{pos},{mmvar}\t".format(pos=pos, mmvar=mmvar)
+		mismatches.append("{pos},{var} : {allmismatches}".format(pos=pos1, var=var1, allmismatches=possibleMismatches))
 
 	if len(found) == 0:
 		missing1_2.append(pos1)
@@ -105,8 +114,8 @@ for pos2, varlist2 in data2.items():
 		for i in range(pos2 - delta, pos2 + delta + 1):
 			if i in data1:
 				found = True
-		if not found:
-			missing2_1.append(pos2)
+	if not found:
+		missing2_1.append(pos2)
 
 nEntries = totalsubs + totalindels
 percentMatch = (len(matches) * 2) / nEntries

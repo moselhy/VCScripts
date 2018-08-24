@@ -30,7 +30,8 @@ def parseFile(f):
 			pos = int(entry[1])
 			if pos not in entryDict:
 				entryDict[pos] = []
-			entryDict[pos].append((entry[3], entry[4]))
+			for var in entry[4].split(','):
+				entryDict[pos].append((entry[3], var))
 			if len(entry[3]) == 1 and len(entry[4]) == 1:
 				nsubs += 1
 			else:
